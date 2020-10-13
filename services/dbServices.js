@@ -4,11 +4,11 @@ const id = require('shortid');
 const insertVideo = async (data) => {
   try {
     await Video.insertMany({
-      id: id.generate(),
+      id: data.id,
       videoData: data.videoData,
       uploader: data.uploader,
-      uploadDate: new Date().getTime(),
-      thumbnail: null
+      uploadDate: data.date,
+      thumbnail: data.thumbnail
     });
     return 200;
   } catch(e) {
